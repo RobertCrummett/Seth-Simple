@@ -1,0 +1,143 @@
+% CGEM Presentation
+%
+% Contact: R Nate Crummett, 2024
+
+%% Presentation Colors
+\newif\ifpdfmode
+
+\begingroup\expandafter\expandafter\expandafter\endgroup
+\expandafter\ifx\csname pdfoutput\endcsname\relax
+\else
+	\ifnum\pdfoutput>0 %
+		\expandafter\expandafter\expandafter\pdfmodetrue
+	\fi
+\fi
+
+\edef\currentcolor{%
+	\ifpdfmode
+		0 g 0 G%
+	\else
+		gray 0%
+	\fi
+}
+
+\begingroup\expandafter\expandafter\expandafter\endgroup
+\expandafter\ifx\csname pdfcolorstack\endcsname\relax
+	\ifpdfmode
+		\def\pdfcolorstackpush{\pdfliteral{\currentcolor}}%
+		\let\pdfcolorstackpop\pdfcolorstackpush
+	\fi
+\else
+	\chardef\colorstack=0 %
+	\def\pdfcolorstackpush{%
+		\pdfcolorstack\colorstackcnt push{\currentcolor}%
+	}%
+	\def\pdfcolorstackpop{%
+		\pdfcolorstack\colorstackcnt pop\relax%
+	}%
+\fi
+
+\edef\color#1{%
+	\begingroup\noexpand\expandafter\noexpand\expandafter\noexpand\expandafter\endgroup
+	\noexpand\expandafter\noexpand\ifx\noexpand\csname color#1\noexpand\endcsname\relax
+		\def\noexpand\currentcolor{#1}%
+	\noexpand\else
+		\noexpand\expandafter\let\noexpand\expandafter\noexpand\currentcolor
+		\noexpand\csname color#1\noexpand\endcsname
+	\noexpand\fi
+	\ifpdfmode
+		\noexpand\pdfcolorstackpush
+	\else
+		\special{color push \noexpand\currentcolor}%
+	\fi
+	\aftergroup\noexpand\resetcolor
+}
+
+\edef\resetcolor{%
+	\ifpdfmode
+		\noexpand\pdfcolorstackpop
+	\else
+		\special{color pop}
+	\fi
+}
+
+\edef\colorred  {\ifpdfmode 1 0 0 rg 1 0 0 RG \else rgb 1 0 0 \fi}
+\edef\colorgreen{\ifpdfmode 0 1 0 rg 0 1 0 RG \else rgb 0 1 0 \fi}
+\edef\colorblue {\ifpdfmode 0 0 1 rg 0 0 1 RG \else rgb 0 0 1 \fi}
+\edef\colorblack{\ifpdfmode 0 0 0 rg 0 0 0 RG \else rgb 0 0 0 \fi}
+\edef\colorwhite{\ifpdfmode 1 1 1 rg 1 1 1 RG \else rgb 1 1 1 \fi}
+
+%% Presentation Fonts
+
+% Roman Text (Family 0)
+\def\fortyeightrm{\font\zfontz="[otf/NewCMMath-Book.otf]:color=FF0000FF" at 48pt \zfontz}
+\def\fortyfourrm {\font\zfontz="[otf/NewCMMath-Book.otf]:color=FF0000FF" at 44pt \zfontz}
+\def\fortyrm     {\font\zfontz="[otf/NewCMMath-Book.otf]:color=FF0000FF" at 40pt \zfontz}
+\def\thirtysixrm {\font\zfontz="[otf/NewCMMath-Book.otf]:color=FF0000FF" at 36pt \zfontz}
+\def\thirtytworm {\font\zfontz="[otf/NewCMMath-Book.otf]:color=FF0000FF" at 32pt \zfontz}
+
+% Math Italic (Family 1)
+\def\fortyeightmi{\font\zfontz="[otf/NewCMMath-Book.otf]:color=FF0000FF" at 48pt \zfontz}
+\def\fortyfourmi {\font\zfontz="[otf/NewCMMath-Book.otf]:color=FF0000FF" at 44pt \zfontz}
+\def\fortymi     {\font\zfontz="[otf/NewCMMath-Book.otf]:color=FF0000FF" at 40pt \zfontz}
+\def\thirtysixmi {\font\zfontz="[otf/NewCMMath-Book.otf]:color=FF0000FF" at 36pt \zfontz}
+\def\thirtytwomi {\font\zfontz="[otf/NewCMMath-Book.otf]:color=FF0000FF" at 32pt \zfontz}
+
+% Math Symbols (Family 2)
+\def\fortyeightmi{\font\zfontz="[otf/NewCMMath-Book.otf]:color=FF0000FF" at 48pt \zfontz}
+\def\fortyfourmi {\font\zfontz="[otf/NewCMMath-Book.otf]:color=FF0000FF" at 44pt \zfontz}
+\def\fortymi     {\font\zfontz="[otf/NewCMMath-Book.otf]:color=FF0000FF" at 40pt \zfontz}
+\def\thirtysixmi {\font\zfontz="[otf/NewCMMath-Book.otf]:color=FF0000FF" at 36pt \zfontz}
+\def\thirtytwomi {\font\zfontz="[otf/NewCMMath-Book.otf]:color=FF0000FF" at 32pt \zfontz}
+
+%% Math Extension (Family 3)
+%\def\fortyeightex{\font\zfontz="[otf.cmunex10 at 48pt \zfontz}
+%\def\fortyfourex{\font\zfontz="[otf.cmunex10 at 44pt \zfontz}
+%\def\fortyex{\font\zfontz="[otf.cmunex10 at 40pt \zfontz}
+%\def\thirtysixex{\font\zfontz="[otf.cmunex10 at 36pt \zfontz}
+%\def\thirtytwoex{\font\zfontz="[otf.cmunex10 at 32pt \zfontz}
+%
+%% Italic Text (Family 4)
+%\def\fortyeightti{\font\zfontz="[otf.cmunti10 at 48pt \zfontz}
+%\def\fortyfourti{\font\zfontz="[otf.cmunti10 at 44pt \zfontz}
+%\def\fortyti{\font\zfontz="[otf.cmunti10 at 40pt \zfontz}
+%\def\thirtysixti{\font\zfontz="[otf.cmunti10 at 36pt \zfontz}
+%\def\thirtytwoti{\font\zfontz="[otf.cmunti10 at 32pt \zfontz}
+%
+%% Slanted Text (Family 5)
+%\def\fortyeightsl{\font\zfontz="[otf.cmunsl10 at 48pt \zfontz}
+%\def\fortyfoursl{\font\zfontz="[otf.cmunsl10 at 44pt \zfontz}
+%\def\fortysl{\font\zfontz="[otf.cmunsl10 at 40pt \zfontz}
+%\def\thirtysixsl{\font\zfontz="[otf.cmunsl10 at 36pt \zfontz}
+%\def\thirtytwosl{\font\zfontz="[otf.cmunsl10 at 32pt \zfontz}
+%
+%% Boldface Text (Family 6)
+%\def\fortyeightbx{\font\zfontz="[otf.cmunbx10 at 48pt \zfontz}
+%\def\fortyfourbx{\font\zfontz="[otf.cmunbx10 at 44pt \zfontz}
+%\def\fortybx{\font\zfontz="[otf.cmunbx10 at 40pt \zfontz}
+%\def\thirtysixbx{\font\zfontz="[otf.cmunbx10 at 36pt \zfontz}
+%\def\thirtytwobx{\font\zfontz="[otf.cmunbx10 at 32pt \zfontz}
+%
+%% Typewriter Text (Family 7)
+%\def\fortyeighttt{\font\zfontz="[otf.cmuntt10 at 48pt \zfontz}
+%\def\fortyfourtt{\font\zfontz="[otf.cmuntt10 at 44pt \zfontz}
+%\def\fortytt{\font\zfontz="[otf.cmuntt10 at 40pt \zfontz}
+%\def\thirtysixtt{\font\zfontz="[otf.cmuntt10 at 36pt \zfontz}
+%\def\thirtytwott{\font\zfontz="[otf.cmuntt10 at 32pt \zfontz}
+
+% Font Family 0, 2, 3
+\font\1="[otf/NewCMMath-Book.otf]:script=math;color=FF0000FF" at 48pt
+\font\2="[otf/NewCMMath-Book.otf]:script=math;+ssty=0;color=FF0000FF" at 40pt
+\font\3="[otf/NewCMMath-Book.otf]:script=math;+ssty=1;color=FF0000FF" at 32pt
+\textfont0=\1 \scriptfont0=\2 \scriptscriptfont0=\3
+\textfont2=\1 \scriptfont2=\2 \scriptscriptfont2=\3
+\textfont3=\1 \scriptfont3=\2 \scriptscriptfont3=\3
+\def\rm{\fam=0}
+\def\cal{\fam=2}
+
+% Font Family 1
+\font\1="[otf/NewCMMath-Book.otf]:mapping=math-italic;color=FF0000FF" at 48pt
+\font\2="[otf/NewCMMath-Book.otf]:mapping=math-italic;color=FF0000FF" at 40pt
+\font\3="[otf/NewCMMath-Book.otf]:mapping=math-italic;color=FF0000FF" at 32pt
+\textfont1=\1 \scriptfont1=\2 \scriptscriptfont1=\3
+\def\mit{\fam=1}
