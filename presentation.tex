@@ -1,22 +1,36 @@
-\input miniltx
-\input color.sty
-\input luaotfload.sty
+\input cgem-presentation
 
-% Slide size
-\pageheight 9in
-\pagewidth 16in
-\vsize 9in
-\hsize 16in
+\newdimen\frameheight
+\newdimen\framewidth
+\frameheight=9in
+\framewidth=16in
+
+\pdfpageheight \frameheight
+\pdfpagewidth \framewidth
+\vsize \frameheight
+\hsize \framewidth
 \voffset -1in
 \hoffset -1in
 
-% Color
-\pagecolor{black}
-\color{white}
+\def\backgroundcolor#1{%
+	\begingroup\color{#1} 
+		\hrule width \framewidth height \frameheight depth 0pt 
+		\vskip -\frameheight 
+	\endgroup
+}
 
-% Slide fonts
-\font\thirtysixsans="Arial" at 36pt \thirtysixsans
+\font\fortyeightwhitesans="Arial:color=FFFFFFFF" at 48pt
+\fortyeightwhitesans
 
-\topglue 0pt plus 1fill
+\backgroundcolor{black}
+\vfill
 \centerline{Hello world}
-\bye
+\vfill
+\eject
+
+\backgroundcolor{black}
+\centerline{Hello world}
+\vfil
+\eject
+
+\end

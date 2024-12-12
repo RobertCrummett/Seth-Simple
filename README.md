@@ -3,5 +3,5 @@
 Quickstart:
 
 ```console
-luatex presentation.tex
+xetex presentation.tex
 ```
