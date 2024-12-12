@@ -1,8 +1,27 @@
-% CGEM Presentation
-%
-% Contact: R Nate Crummett, 2024
+%% CGEM Presentation
+%%
+%% Contact: R Nate Crummett, 2024
+
+%% Presentation Frame Dimensions
+
+\newdimen\frameheight \frameheight=9in
+\newdimen\framewidth  \framewidth=16in
+
+\pdfpageheight \frameheight
+\pdfpagewidth \framewidth
+\vsize \frameheight
+\hsize \framewidth
+\voffset -1in
+\hoffset -1in
 
 %% Presentation Colors
+\def\backgroundcolor#1{%
+	\begingroup\color{#1}%
+		\hrule width \framewidth height \frameheight depth 0pt%
+		\vskip -\frameheight
+	\endgroup
+}
+
 \newif\ifpdfmode
 
 \begingroup\expandafter\expandafter\expandafter\endgroup
@@ -68,76 +87,121 @@
 \edef\colorwhite{\ifpdfmode 1 1 1 rg 1 1 1 RG \else rgb 1 1 1 \fi}
 
 %% Presentation Fonts
+\newdimen\hugefont   \hugefont=52pt
+\newdimen\largefont  \largefont=44pt
+\newdimen\normalfont \normalfont=40pt
+\newdimen\smallfont  \smallfont=36pt
+\newdimen\tinyfont   \tinyfont=26pt
+
+% Arial Text
+\def\hugesans   {\font\zfontz="Arial" at \hugefont   \zfontz}
+\def\largesans  {\font\zfontz="Arial" at \largefont  \zfontz}
+\def\normalsans {\font\zfontz="Arial" at \normalfont \zfontz}
+\def\smallsans  {\font\zfontz="Arial" at \smallfont  \zfontz}
+\def\tinysans   {\font\zfontz="Arial" at \tinyfont   \zfontz}
 
 % Roman Text (Family 0)
-\def\fortyeightrm{\font\zfontz="[otf/NewCMMath-Book.otf]:color=FF0000FF" at 48pt \zfontz}
-\def\fortyfourrm {\font\zfontz="[otf/NewCMMath-Book.otf]:color=FF0000FF" at 44pt \zfontz}
-\def\fortyrm     {\font\zfontz="[otf/NewCMMath-Book.otf]:color=FF0000FF" at 40pt \zfontz}
-\def\thirtysixrm {\font\zfontz="[otf/NewCMMath-Book.otf]:color=FF0000FF" at 36pt \zfontz}
-\def\thirtytworm {\font\zfontz="[otf/NewCMMath-Book.otf]:color=FF0000FF" at 32pt \zfontz}
+\def\hugerm   {\font\zfontz="cmr10" at \hugefont   \zfontz}
+\def\largerm  {\font\zfontz="cmr10" at \largefont  \zfontz}
+\def\normalrm {\font\zfontz="cmr10" at \normalfont \zfontz}
+\def\smallrm  {\font\zfontz="cmr10" at \smallfont  \zfontz}
+\def\tinyrm   {\font\zfontz="cmr10" at \tinyfont   \zfontz}
+
+\font\1="cmr10" at \largefont
+\font\2="cmr10" at \normalfont
+\font\3="cmr10" at \smallfont
+\textfont0=\1 \scriptfont0=\2 \scriptscriptfont0=\3
+\def\rm{\fam=0}
 
 % Math Italic (Family 1)
-\def\fortyeightmi{\font\zfontz="[otf/NewCMMath-Book.otf]:color=FF0000FF" at 48pt \zfontz}
-\def\fortyfourmi {\font\zfontz="[otf/NewCMMath-Book.otf]:color=FF0000FF" at 44pt \zfontz}
-\def\fortymi     {\font\zfontz="[otf/NewCMMath-Book.otf]:color=FF0000FF" at 40pt \zfontz}
-\def\thirtysixmi {\font\zfontz="[otf/NewCMMath-Book.otf]:color=FF0000FF" at 36pt \zfontz}
-\def\thirtytwomi {\font\zfontz="[otf/NewCMMath-Book.otf]:color=FF0000FF" at 32pt \zfontz}
+\def\hugemi   {\font\zfontz="cmmi10" at \hugefont   \zfontz}
+\def\largemi  {\font\zfontz="cmmi10" at \largefont  \zfontz}
+\def\normalmi {\font\zfontz="cmmi10" at \normalfont \zfontz}
+\def\smallmi  {\font\zfontz="cmmi10" at \smallfont  \zfontz}
+\def\tinymi   {\font\zfontz="cmmi10" at \tinyfont   \zfontz}
 
-% Math Symbols (Family 2)
-\def\fortyeightmi{\font\zfontz="[otf/NewCMMath-Book.otf]:color=FF0000FF" at 48pt \zfontz}
-\def\fortyfourmi {\font\zfontz="[otf/NewCMMath-Book.otf]:color=FF0000FF" at 44pt \zfontz}
-\def\fortymi     {\font\zfontz="[otf/NewCMMath-Book.otf]:color=FF0000FF" at 40pt \zfontz}
-\def\thirtysixmi {\font\zfontz="[otf/NewCMMath-Book.otf]:color=FF0000FF" at 36pt \zfontz}
-\def\thirtytwomi {\font\zfontz="[otf/NewCMMath-Book.otf]:color=FF0000FF" at 32pt \zfontz}
-
-%% Math Extension (Family 3)
-%\def\fortyeightex{\font\zfontz="[otf.cmunex10 at 48pt \zfontz}
-%\def\fortyfourex{\font\zfontz="[otf.cmunex10 at 44pt \zfontz}
-%\def\fortyex{\font\zfontz="[otf.cmunex10 at 40pt \zfontz}
-%\def\thirtysixex{\font\zfontz="[otf.cmunex10 at 36pt \zfontz}
-%\def\thirtytwoex{\font\zfontz="[otf.cmunex10 at 32pt \zfontz}
-%
-%% Italic Text (Family 4)
-%\def\fortyeightti{\font\zfontz="[otf.cmunti10 at 48pt \zfontz}
-%\def\fortyfourti{\font\zfontz="[otf.cmunti10 at 44pt \zfontz}
-%\def\fortyti{\font\zfontz="[otf.cmunti10 at 40pt \zfontz}
-%\def\thirtysixti{\font\zfontz="[otf.cmunti10 at 36pt \zfontz}
-%\def\thirtytwoti{\font\zfontz="[otf.cmunti10 at 32pt \zfontz}
-%
-%% Slanted Text (Family 5)
-%\def\fortyeightsl{\font\zfontz="[otf.cmunsl10 at 48pt \zfontz}
-%\def\fortyfoursl{\font\zfontz="[otf.cmunsl10 at 44pt \zfontz}
-%\def\fortysl{\font\zfontz="[otf.cmunsl10 at 40pt \zfontz}
-%\def\thirtysixsl{\font\zfontz="[otf.cmunsl10 at 36pt \zfontz}
-%\def\thirtytwosl{\font\zfontz="[otf.cmunsl10 at 32pt \zfontz}
-%
-%% Boldface Text (Family 6)
-%\def\fortyeightbx{\font\zfontz="[otf.cmunbx10 at 48pt \zfontz}
-%\def\fortyfourbx{\font\zfontz="[otf.cmunbx10 at 44pt \zfontz}
-%\def\fortybx{\font\zfontz="[otf.cmunbx10 at 40pt \zfontz}
-%\def\thirtysixbx{\font\zfontz="[otf.cmunbx10 at 36pt \zfontz}
-%\def\thirtytwobx{\font\zfontz="[otf.cmunbx10 at 32pt \zfontz}
-%
-%% Typewriter Text (Family 7)
-%\def\fortyeighttt{\font\zfontz="[otf.cmuntt10 at 48pt \zfontz}
-%\def\fortyfourtt{\font\zfontz="[otf.cmuntt10 at 44pt \zfontz}
-%\def\fortytt{\font\zfontz="[otf.cmuntt10 at 40pt \zfontz}
-%\def\thirtysixtt{\font\zfontz="[otf.cmuntt10 at 36pt \zfontz}
-%\def\thirtytwott{\font\zfontz="[otf.cmuntt10 at 32pt \zfontz}
-
-% Font Family 0, 2, 3
-\font\1="[otf/NewCMMath-Book.otf]:script=math;color=FF0000FF" at 48pt
-\font\2="[otf/NewCMMath-Book.otf]:script=math;+ssty=0;color=FF0000FF" at 40pt
-\font\3="[otf/NewCMMath-Book.otf]:script=math;+ssty=1;color=FF0000FF" at 32pt
-\textfont0=\1 \scriptfont0=\2 \scriptscriptfont0=\3
-\textfont2=\1 \scriptfont2=\2 \scriptscriptfont2=\3
-\textfont3=\1 \scriptfont3=\2 \scriptscriptfont3=\3
-\def\rm{\fam=0}
-\def\cal{\fam=2}
-
-% Font Family 1
-\font\1="[otf/NewCMMath-Book.otf]:mapping=math-italic;color=FF0000FF" at 48pt
-\font\2="[otf/NewCMMath-Book.otf]:mapping=math-italic;color=FF0000FF" at 40pt
-\font\3="[otf/NewCMMath-Book.otf]:mapping=math-italic;color=FF0000FF" at 32pt
+\font\1="cmmi10" at \largefont
+\font\2="cmmi10" at \normalfont
+\font\3="cmmi10" at \smallfont
 \textfont1=\1 \scriptfont1=\2 \scriptscriptfont1=\3
 \def\mit{\fam=1}
+
+% Math Symbols (Family 2)
+\def\hugesy   {\font\zfontz="cmsy10" at \hugefont   \zfontz}
+\def\largesy  {\font\zfontz="cmsy10" at \largefont  \zfontz}
+\def\normalsy {\font\zfontz="cmsy10" at \normalfont \zfontz}
+\def\smallsy  {\font\zfontz="cmsy10" at \smallfont  \zfontz}
+\def\tinysy   {\font\zfontz="cmsy10" at \tinyfont   \zfontz}
+
+\font\1="cmsy10" at \largefont
+\font\2="cmsy10" at \normalfont
+\font\3="cmsy10" at \smallfont
+\textfont2=\1 \scriptfont2=\2 \scriptscriptfont2=\3
+\def\cal{\fam=2}
+
+% Math Extension (Family 3)
+\def\hugeex   {\font\zfontz="cmex10" at \hugefont   \zfontz}
+\def\largeex  {\font\zfontz="cmex10" at \largefont  \zfontz}
+\def\normalex {\font\zfontz="cmex10" at \normalfont \zfontz}
+\def\smallex  {\font\zfontz="cmex10" at \smallfont  \zfontz}
+\def\tinyex   {\font\zfontz="cmex10" at \tinyfont   \zfontz}
+
+\font\1="cmex10" at \largefont
+\font\2="cmex10" at \normalfont
+\font\3="cmex10" at \smallfont
+\textfont3=\1 \scriptfont3=\2 \scriptscriptfont3=\3
+
+% Italic Text (Family 4)
+\def\hugeti   {\font\zfontz="Arial Italic" at \hugefont   \zfontz}
+\def\largeti  {\font\zfontz="Arial Italic" at \largefont  \zfontz}
+\def\normalti {\font\zfontz="Arial Italic" at \normalfont \zfontz}
+\def\smallti  {\font\zfontz="Arial Italic" at \smallfont  \zfontz}
+\def\tinyti   {\font\zfontz="Arial Italic" at \tinyfont   \zfontz}
+
+\font\1="Arial Italic" at \largefont
+\font\2="Arial Italic" at \normalfont
+\font\3="Arial Italic" at \smallfont
+\textfont4=\1 \scriptfont4=\2 \scriptscriptfont4=\3
+
+% Slanted Text (Family 5)
+\def\hugesl   {\font\zfontz="Arial" at \hugefont   \zfontz}
+\def\largesl  {\font\zfontz="Arial" at \largefont  \zfontz}
+\def\normalsl {\font\zfontz="Arial" at \normalfont \zfontz}
+\def\smallsl  {\font\zfontz="Arial" at \smallfont  \zfontz}
+\def\tinysl   {\font\zfontz="Arial" at \tinyfont   \zfontz}
+
+\font\1="Arial" at \largefont
+\font\2="Arial" at \normalfont
+\font\3="Arial" at \smallfont
+\textfont5=\1 \scriptfont5=\2 \scriptscriptfont5=\3
+
+% Boldface Text (Family 6)
+\def\hugebx   {\font\zfontz="Arial Bold" at \hugefont   \zfontz}
+\def\largebx  {\font\zfontz="Arial Bold" at \largefont  \zfontz}
+\def\normalbx {\font\zfontz="Arial Bold" at \normalfont \zfontz}
+\def\smallbx  {\font\zfontz="Arial Bold" at \smallfont  \zfontz}
+\def\tinybx   {\font\zfontz="Arial Bold" at \tinyfont   \zfontz}
+
+\font\1="Arial Bold" at \largefont
+\font\2="Arial Bold" at \normalfont
+\font\3="Arial Bold" at \smallfont
+\textfont6=\1 \scriptfont6=\2 \scriptscriptfont6=\3
+
+% Typewriter Text (Family 7)
+\def\hugett   {\font\zfontz="cmtt10" at \hugefont   \zfontz}
+\def\largett  {\font\zfontz="cmtt10" at \largefont  \zfontz}
+\def\normaltt {\font\zfontz="cmtt10" at \normalfont \zfontz}
+\def\smalltt  {\font\zfontz="cmtt10" at \smallfont  \zfontz}
+\def\tinytt   {\font\zfontz="cmtt10" at \tinyfont   \zfontz}
+
+\font\1="cmtt10" at \largefont
+\font\2="cmtt10" at \normalfont
+\font\3="cmtt10" at \smallfont
+\textfont7=\1 \scriptfont7=\2 \scriptscriptfont7=\3
+
+% Bold Italic
+\def\hugebxit   {\font\zfontz="Arial Bold Italic" at \hugefont   \zfontz}
+\def\largebxit  {\font\zfontz="Arial Bold Italic" at \largefont  \zfontz}
+\def\normalbxit {\font\zfontz="Arial Bold Italic" at \normalfont \zfontz}
+\def\smallbxit  {\font\zfontz="Arial Bold Italic" at \smallfont  \zfontz}
+\def\tinybxit   {\font\zfontz="Arial Bold Italic" at \tinyfont   \zfontz}

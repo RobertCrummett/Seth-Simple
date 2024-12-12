@@ -1,32 +1,18 @@
 \input cgem
 
-\newdimen\frameheight \frameheight=9in
-\newdimen\framewidth  \framewidth=16in
+\largesans
 
-\pdfpageheight \frameheight
-\pdfpagewidth \framewidth
-\vsize \frameheight
-\hsize \framewidth
-\voffset -1in
-\hoffset -1in
-
-\def\backgroundcolor#1{%
-	\begingroup\color{#1}%
-		\hrule width \framewidth height \frameheight depth 0pt%
-		\vskip -\frameheight
-	\endgroup
-}
-
-\rm 
-\fortyeightrm
-\backgroundcolor{white}
+\begingroup\color{white}
+\backgroundcolor{black}
 \vfill
 \centerline{Hello World}
 $$\sum_i^\infty {1 \over i^\alpha}$$
+\centerline{Hello World}
 \vfill
 \eject
 
-\backgroundcolor{white}
+\backgroundcolor{black}
 \vfill
-\centerline{ Hello World}
+\centerline{\begingroup\color{green} \hugeti Hello World\endgroup}
+\endgroup % white
 \bye
