@@ -1,9 +1,7 @@
-\input cgem-presentation
+\input cgem
 
-\newdimen\frameheight
-\newdimen\framewidth
-\frameheight=9in
-\framewidth=16in
+\newdimen\frameheight \frameheight=9in
+\newdimen\framewidth  \framewidth=16in
 
 \pdfpageheight \frameheight
 \pdfpagewidth \framewidth
@@ -13,24 +11,22 @@
 \hoffset -1in
 
 \def\backgroundcolor#1{%
-	\begingroup\color{#1} 
-		\hrule width \framewidth height \frameheight depth 0pt 
-		\vskip -\frameheight 
+	\begingroup\color{#1}%
+		\hrule width \framewidth height \frameheight depth 0pt%
+		\vskip -\frameheight
 	\endgroup
 }
 
-\font\fortyeightwhitesans="Arial:color=FFFFFFFF" at 48pt
-\fortyeightwhitesans
-
-\backgroundcolor{black}
+\rm 
+\fortyeightrm
+\backgroundcolor{white}
 \vfill
-\centerline{Hello world}
+\centerline{Hello World}
+$$\sum_i^\infty {1 \over i^\alpha}$$
 \vfill
 \eject
 
-\backgroundcolor{black}
-\centerline{Hello world}
-\vfil
-\eject
-
-\end
+\backgroundcolor{white}
+\vfill
+\centerline{ Hello World}
+\bye
