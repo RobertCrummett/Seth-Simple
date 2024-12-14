@@ -3,36 +3,46 @@
 \def\slidecolor{black}
 \def\textcolor {white}
 
-\def\logomines{\XeTeXpicfile logo/mines-logo-dark.png height 4in}
-\def\logocgem {\XeTeXpicfile logo/cgem-logo-dark.png  height 4in}
+\newdimen\logoheight
+\def\logomines{\global\logoheight=2.5in \XeTeXpicfile logo/mines-logo-dark.png height \logoheight}
+\def\logocgem {\global\logoheight=2in \XeTeXpicfile logo/cgem-logo-dark.png  height \logoheight}
+
+\def\emdash{\char"2014}
 
 \largesans
 \begingroup\color\textcolor
+
+%% Title
 \backgroundcolor\slidecolor
-\logomines
-\logocgem
+\vskip 2cm
+\centerline{\giantbf Title / Hook}
+
 \vfil
+\centerline{\normalbf R~Nate~Crummett \emdash \kern 5pt Yaoguo~Li}
+
+\vskip 5mm
+\centerline{\begingroup\color{cgemblue}\smallit Center of Gravity, Electric \& Magnetic Studies\endgroup}
+
+\vskip 3mm
+\centerline{\begingroup\color{cgemblue}\smallit Colorado School of Mines\endgroup}
+
+\vskip -5.2cm
+\hbox{\vbox{\logomines} \hskip 27cm \vbox{\logocgem \kern 7mm}}
 \eject
 
+%% Second
 \backgroundcolor\slidecolor
-\topglue 0pt
-\vfil
-\centerline{Hello World}
-$$\sum_i^\infty {1 \over i^\alpha}$$
-\centerline{Hello World}
+
 \vfil
 \pagenumber
 \eject
 
+%% Reference
 \backgroundcolor\slidecolor
-\topglue 0pt
+\vskip 1cm
+\centerline{\hugebf References}
+
 \vfil
-\centerline{Hello world}
-\bigskip
-\centerline{\begingroup\color{cgemblue} \hugebfit Hello World\endgroup}
-\vfil
-\pagenumber
 \endgroup % white
 \eject
-
 \end

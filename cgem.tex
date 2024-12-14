@@ -94,6 +94,7 @@
 \edef\colorwhite{\ifpdfmode 1 1 1 rg 1 1 1 RG \else rgb 1 1 1 \fi}
 
 %% Fonts
+\newdimen\giantfont  \giantfont=56pt
 \newdimen\hugefont   \hugefont=52pt
 \newdimen\largefont  \largefont=44pt
 \newdimen\normalfont \normalfont=40pt
@@ -101,6 +102,7 @@
 \newdimen\tinyfont   \tinyfont=26pt
 
 % Arial Text
+\def\giantsans  {\font\zfontz="Arial" at \giantfont  \zfontz}
 \def\hugesans   {\font\zfontz="Arial" at \hugefont   \zfontz}
 \def\largesans  {\font\zfontz="Arial" at \largefont  \zfontz}
 \def\normalsans {\font\zfontz="Arial" at \normalfont \zfontz}
@@ -159,6 +161,7 @@
 \textfont3=\1 \scriptfont3=\2 \scriptscriptfont3=\3
 
 % Italic Text (Family 4)
+\def\giantit  {\font\zfontz="Arial Italic" at \giantfont  \zfontz}
 \def\hugeit   {\font\zfontz="Arial Italic" at \hugefont   \zfontz}
 \def\largeit  {\font\zfontz="Arial Italic" at \largefont  \zfontz}
 \def\normalit {\font\zfontz="Arial Italic" at \normalfont \zfontz}
@@ -172,6 +175,7 @@
 \def\it{\fam=4}
 
 % Slanted Text (Family 5)
+\def\giantsl  {\font\zfontz="Arial" at \giantfont  \zfontz}
 \def\hugesl   {\font\zfontz="Arial" at \hugefont   \zfontz}
 \def\largesl  {\font\zfontz="Arial" at \largefont  \zfontz}
 \def\normalsl {\font\zfontz="Arial" at \normalfont \zfontz}
@@ -185,6 +189,7 @@
 \def\sl{\fam=5}
 
 % Boldface Text (Family 6)
+\def\giantbf  {\font\zfontz="Arial Bold" at \giantfont  \zfontz}
 \def\hugebf   {\font\zfontz="Arial Bold" at \hugefont   \zfontz}
 \def\largebf  {\font\zfontz="Arial Bold" at \largefont  \zfontz}
 \def\normalbf {\font\zfontz="Arial Bold" at \normalfont \zfontz}
@@ -211,6 +216,7 @@
 \def\tt{\fam=7}
 
 % Bold Italic
+\def\giantbfit  {\font\zfontz="Arial Bold Italic" at \giantfont  \zfontz}
 \def\hugebfit   {\font\zfontz="Arial Bold Italic" at \hugefont   \zfontz}
 \def\largebfit  {\font\zfontz="Arial Bold Italic" at \largefont  \zfontz}
 \def\normalbfit {\font\zfontz="Arial Bold Italic" at \normalfont \zfontz}
