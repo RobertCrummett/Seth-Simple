@@ -1,9 +1,7 @@
-%% CGEM Presentation
-%%
+%% CGEM Presentation %%
 %% Contact: R Nate Crummett, 2024
 
-%% Presentation Frame Dimensions
-
+%% Frame Dimensions
 \newdimen\frameheight \frameheight=9in
 \newdimen\framewidth  \framewidth=16in
 
@@ -14,7 +12,15 @@
 \voffset -1in
 \hoffset -1in
 
-%% Presentation Colors
+%% Numbers
+\def\pagenumber{
+	\hfill
+	\begingroup\color{cgemblue} \smallsans \folio \endgroup
+	\hskip 3mm \vskip 6mm
+}
+
+
+%% Colors
 \def\backgroundcolor#1{%
 	\begingroup\color{#1}%
 		\hrule width \framewidth height \frameheight depth 0pt%
@@ -83,12 +89,11 @@
 \edef\colorred  {\ifpdfmode 1 0 0 rg 1 0 0 RG \else rgb 1 0 0 \fi}
 \edef\colorgreen{\ifpdfmode 0 1 0 rg 0 1 0 RG \else rgb 0 1 0 \fi}
 \edef\colorblue {\ifpdfmode 0 0 1 rg 0 0 1 RG \else rgb 0 0 1 \fi}
+\edef\colorcgemblue{\ifpdfmode 0.56470 0.77255 0.98431 rg 0.56470 0.77255 0.98431 RG \else rgb 0.56470 0.77255 0.98431 \fi}
 \edef\colorblack{\ifpdfmode 0 0 0 rg 0 0 0 RG \else rgb 0 0 0 \fi}
 \edef\colorwhite{\ifpdfmode 1 1 1 rg 1 1 1 RG \else rgb 1 1 1 \fi}
 
-\edef\colorcgemblue{\ifpdfmode 0.56471 0.77255 0.98431 rg 0.56471 0.77255 0.98431 RG \else rgb 0.56471 0.77255 0.98431 \fi}
-
-%% Presentation Fonts
+%% Fonts
 \newdimen\hugefont   \hugefont=52pt
 \newdimen\largefont  \largefont=44pt
 \newdimen\normalfont \normalfont=40pt

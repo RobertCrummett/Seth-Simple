@@ -1,18 +1,38 @@
 \input cgem
 
-\hugesans
+\def\slidecolor{black}
+\def\textcolor {white}
 
-\begingroup\color{white}
-\backgroundcolor{black}
-\vfill
+\def\logomines{\XeTeXpicfile logo/mines-logo-dark.png height 4in}
+\def\logocgem {\XeTeXpicfile logo/cgem-logo-dark.png  height 4in}
+
+\largesans
+\begingroup\color\textcolor
+\backgroundcolor\slidecolor
+\logomines
+\logocgem
+\vfil
+\eject
+
+\backgroundcolor\slidecolor
+\topglue 0pt
+\vfil
 \centerline{Hello World}
 $$\sum_i^\infty {1 \over i^\alpha}$$
 \centerline{Hello World}
-\vfill
+\vfil
+\pagenumber
 \eject
 
-\backgroundcolor{black}
-\vfill
-\centerline{\begingroup\color{cgemblue} \hugebf Hello World\endgroup}
+\backgroundcolor\slidecolor
+\topglue 0pt
+\vfil
+\centerline{Hello world}
+\bigskip
+\centerline{\begingroup\color{cgemblue} \hugebfit Hello World\endgroup}
+\vfil
+\pagenumber
 \endgroup % white
-\bye
+\eject
+
+\end
